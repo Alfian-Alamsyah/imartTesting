@@ -18,22 +18,22 @@ app.use(UserRouter)
 
 
 
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'imart',
-    password: 'postgres',
-    port: 5432, // Default PostgreSQL port
-});
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'imart',
+//     password: 'postgres',
+//     port: 5432, // Default PostgreSQL port
+// });
   
-// Test the connection
-pool.query('SELECT NOW()', (err, res) => {
-    if (err) {
-      console.error('Error connecting to PostgreSQL:', err);
-    } else {
-      console.log('Connected to PostgreSQL');
-    }
-});
+// // Test the connection
+// pool.query('SELECT NOW()', (err, res) => {
+//     if (err) {
+//       console.error('Error connecting to PostgreSQL:', err);
+//     } else {
+//       console.log('Connected to PostgreSQL');
+//     }
+// });
 
 
 app.get("/",(req,res)=>{
