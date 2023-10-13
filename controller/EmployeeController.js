@@ -27,6 +27,46 @@ export const findOneEmployee = (req,res)=>{
 }
 
 export const findAllEmployee = (req,res)=>{
+
+    const query = req.query;
+    
+    console.log(query);
+
+
+    if(query.name && query.email){
+        Employee.findAll(
+            { where: {name: query.name,email:query.email}}
+        )
+            .then(response => {
+                res.send(response)
+            }).catch((error) => {
+                console.error('Failed to create a new record : ', error);
+            });
+        return;
+    }
+    if(query.name){
+        Employee.findAll(
+            { where: {name: query.name}}
+        )
+            .then(response => {
+                res.send(response)
+            }).catch((error) => {
+                console.error('Failed to create a new record : ', error);
+            });
+        return;
+    }
+    if(query.email){
+        Employee.findAll(
+            { where: {email: query.email}}
+        )
+            .then(response => {
+                res.send(response)
+            }).catch((error) => {
+                console.error('Failed to create a new record : ', error);
+            });
+        return;
+    }
+
     Employee.findAll()
     .then(response => {
         res.send(response)
